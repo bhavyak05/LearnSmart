@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aptitude Quiz</title><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styletable.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+P{font-size: 22px;
+}
+a:link {
+  color: firebrick;
+}
+a:visited {
+  color: purple;
+}
+a:hover{
+color:red;
+}
+li{
+color:blue;
+font-size:18px;
+}
+
+.id:link{
+color:white;
+}
+.id:visited{
+color:white;
+}
+.id:hover{
+color:red;
+}
+   
+</style>
+</head>
+<body>
+<header class = "head">
+        <h1>LearnSmart</h1>
+        <nav>
+<a href="HTML.html" class= "id" >HOME</A>
+            <a href="career.html" class= "id">COURSES</a>
+            <a href="finance.html" class= "id">PARTNERS</a>
+<a href = "quiz .html" class= "id">APTITUDE QUIZ</A>
+            <a href="testmaterial.php" class= "id">APPLY</a>
+            <a href="help.html" class="id">HELP</a>
+
+           
+        </nav>
+    </header>
+<h1> <strong><i><big><CENTER> LearnSmart </CENTER></BIG></I></strong></h1>
+<h2><I><STRONG><CENTER> Path To Success </CENTER></strong></i></h2>
+<br><CENTER>
+    <h1>Welcome to the Aptitude Quiz</h1></CENTER>
+    <p id="question">Question goes here</p>
+    <ul id="choices">
+        <li><button onclick="checkAnswer(0)">Choice 1</button></li>
+        <li><button onclick="checkAnswer(1)">Choice 2</button></li>
+        <li><button onclick="checkAnswer(2)">Choice 3</button></li>
+        <li><button onclick="checkAnswer(3)">Choice 4</button></li>
+    </ul>
+    <div id="question"></div>
+    <div id="choices"></div>
+    <div id="result"></div>
+    <div id="resultd"></div>
+
+    <script>
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const quizQuestions = [
+            {
+                question: "What is the capital of France?",
+                choices: ["Paris", "London", "Berlin", "Madrid"],
+                correctAnswer: 0
+            },
+            {
+                question: "If your friend's brother has a sister, who married your brother, then her son is your",
+                choices: ["Brother", "Nephew", "Cousin", "Uncle"],
+                correctAnswer: 1
+            },
+            {
+                question: "A’s age after 15 years would be equal to 5 times his age 5 years ago. Find his age 3 years hence.",
+                choices: ["25", "31", "12", "13"],
+                correctAnswer: 3
+            },
+            {
+                question: "Which is the rarest blood type?",
+                choices: ["A+", "B-", "AB-", "AB+"],
+                correctAnswer: 2
+            },
+            {
+                question: "What is 'black gold'?",
+                choices: ["Diesel", "Petroleum", "Topaz", "Quartz"],
+                correctAnswer: 1
+            }
+        ];
+
+        const questionElement = document.getElementById("question");
+        const choicesElement = document.getElementById("choices");
+        const resultElement = document.getElementById("result");
+        const resultDisElement = document.getElementById("resultd");
+        function loadQuestion() {
+        const currentQuestion = quizQuestions[currentQuestionIndex];
+
+        if (currentQuestion) {
+            questionElement.textContent = currentQuestion.question;
+            choicesElement.innerHTML = '';
+
+            currentQuestion.choices.forEach((choice, index) => {
+                const choiceButton = document.createElement('button');
+                choiceButton.textContent = choice;
+                choiceButton.addEventListener('click', () => checkAnswer(index));
+                const choiceListItem = document.createElement('li');
+                choiceListItem.appendChild(choiceButton);
+                choicesElement.appendChild(choiceListItem);
+            });
+        } else {
+            questionElement.textContent = "Quiz completed!";
+            choicesElement.innerHTML = "";
+            displayResultMessage();
+        }
+    }
+
+    function checkAnswer(selectedIndex) {
+        const currentQuestion = quizQuestions[currentQuestionIndex];
+        if (currentQuestion && selectedIndex === currentQuestion.correctAnswer) {
+            score++;
+        }
+        currentQuestionIndex++;
+        displayUpdatedScore(); // Display the updated score after each question
+        loadQuestion();
+    }
+
+    function displayUpdatedScore() {
+        resultDisElement.innerHTML = `Your score: ${score}`;
+    }
+
+    function displayResultMessage() {
+        if (score === 0) {
+            resultElement.textContent = "Very Poor performance";
+        } else if (score <= 3) {
+            resultElement.textContent = "You can do better";
+        } else if (score <= 5 && score > 3) {
+            resultElement.textContent = "Amazing";
+        }
+    }
+
+    // Initial display of the score
+    displayUpdatedScore();
+
+    // Call displayNextQuestion to start the quiz
+    loadQuestion();
+</script>
+
+    </script>
+
+<p><BR><BR>To register  
+<a href = "testmaterial.php">CLICK HERE</A></p></b>
+<br></center>
+<b><p style="color:blue;font-size:18px"><U> CONTACT US </U></B><br>
+<ul>
+<li >Ph: 9855621522<br></li>
+<li >Email: expertalkcontact@gmail.com</li><br><br><a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+<a href="https://twitter.com/login" class="fa fa-twitter"></a>
+<a href="https://instagram.com" class="fa fa-instagram"></a>
+<a href="https://in.linkedin.com" class="fa fa-linkedin"></a>
+<br><br>
+<a href="#">TOP</a>
+
+</body></html>
